@@ -1,0 +1,48 @@
+<div class="container">
+
+<h2>Login</h2>
+
+<form>
+
+<div class="mb-3">
+
+<label>Email</label>
+
+<input
+type="email"
+class="form-control"
+[(ngModel)]="loginModel.email"
+name="email">
+
+</div>
+
+<div class="mb-3">
+
+<label>Password</label>
+
+<input
+type="password"
+class="form-control"
+[(ngModel)]="loginModel.password"
+name="password">
+
+</div>
+
+<button
+class="btn btn-primary"
+type="button"
+(click)="login()">
+Login
+</button>
+
+<div
+class="alert alert-danger mt-3"
+*ngIf="errorMessage">
+
+{{ errorMessage }}
+
+</div>
+
+</form>
+
+</div>
