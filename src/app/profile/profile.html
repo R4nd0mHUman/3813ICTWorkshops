@@ -1,5 +1,79 @@
-<h1>Profile Page</h1>
+<!-- Create the main Bootstrap container for the profile page. -->
+<div class="container">
 
-<img
-src="https://placehold.co/300x300"
-class="img-fluid">
+  <!-- Display the Profile Page heading. -->
+  <h2>ProfilePage</h2>
+
+  <!-- Display a placeholder profile image. -->
+  <img
+    src="https://placehold.co/300x300"
+    alt="Profile"
+    class="img-fluid rounded mb-3">
+
+  <!-- Create the profile form and call saveProfile() when submitted. -->
+  <form (ngSubmit)="saveProfile()">
+
+    <!-- Create a section for the username field. -->
+    <div class="mb-3">
+
+      <!-- Label for the username field. -->
+      <label class="form-label">Username</label>
+
+      <!-- Input connected to the user's username using ngModel. -->
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="user.username"
+        name="username">
+    </div>
+
+    <!-- Create a section for the birthdate field. -->
+    <div class="mb-3">
+
+      <!-- Label for the birthdate field. -->
+      <label class="form-label">Birthdate</label>
+
+      <!-- Input connected to the user's birthdate using ngModel. -->
+      <input
+        type="date"
+        class="form-control"
+        [(ngModel)]="user.birthdate"
+        name="birthdate">
+    </div>
+
+    <!-- Create a section for the age field. -->
+    <div class="mb-3">
+
+      <!-- Label for the age field. -->
+      <label class="form-label">Age</label>
+
+      <!-- Input connected to the user's age using ngModel. -->
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="user.age"
+        name="age">
+    </div>
+
+    <!-- Create a section for the email field. -->
+    <div class="mb-3">
+
+      <!-- Label for the email field. -->
+      <label class="form-label">Email</label>
+
+      <!-- Input connected to the user's email using ngModel. -->
+      <input
+        type="email"
+        class="form-control"
+        [(ngModel)]="user.email"
+        name="email">
+    </div>
+
+    <!-- Button used to submit and save the profile changes. -->
+    <button type="submit" class="btn btn-success">
+      Save Changes
+    </button>
+
+  </form>
+
+</div>

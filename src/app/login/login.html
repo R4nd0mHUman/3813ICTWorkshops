@@ -1,48 +1,64 @@
+<!-- Create the main Bootstrap container for the login page. -->
 <div class="container">
 
-<h2>Login</h2>
+  <!-- Display the Login heading. -->
+  <h2>Login</h2>
 
-<form>
+  <!-- Create the login form and call the login() function when submitted. -->
+  <form (ngSubmit)="login()">
 
-<div class="mb-3">
+    <!-- Create a section for the email input. -->
+    <div class="mb-3">
 
-<label>Email</label>
+      <!-- Label for the email field. -->
+      <label class="form-label">Email</label>
 
-<input
-type="email"
-class="form-control"
-[(ngModel)]="loginModel.email"
-name="email">
+      <!-- Input where the user enters their email address. -->
+      <input
+        type="email"
+        class="form-control"
+        [(ngModel)]="loginModel.email"
+        name="email"
+        required>
 
-</div>
+    </div>
 
-<div class="mb-3">
+    <!-- Create a section for the password input. -->
+    <div class="mb-3">
 
-<label>Password</label>
+      <!-- Label for the password field. -->
+      <label class="form-label">Password</label>
 
-<input
-type="password"
-class="form-control"
-[(ngModel)]="loginModel.password"
-name="password">
+      <!-- Input where the user enters their password. -->
+      <input
+        type="password"
+        class="form-control"
+        [(ngModel)]="loginModel.password"
+        name="password"
+        required>
 
-</div>
+    </div>
 
-<button
-class="btn btn-primary"
-type="button"
-(click)="login()">
-Login
-</button>
+    <!-- Create the button used to submit the login form. -->
+    <button
+      class="btn btn-primary"
+      type="submit">
 
-<div
-class="alert alert-danger mt-3"
-*ngIf="errorMessage">
+      <!-- Text displayed on the login button. -->
+      Login
 
-{{ errorMessage }}
+    </button>
 
-</div>
+  </form>
 
-</form>
+  <!-- Only display the error message if errorMessage contains something. -->
+  <div
+    class="alert alert-danger mt-3"
+    *ngIf="errorMessage">
+
+    <!-- Display the error message stored in the component. -->
+    {{ errorMessage }}
+
+  </div>
 
 </div>
