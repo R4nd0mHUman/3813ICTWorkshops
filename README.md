@@ -1,4 +1,22 @@
-# Week4
+# Week 5 Updated
+
+I don't know why this week 5 is so weird with the GitHub stuff, but the main files are in server and src, not week 4.
+
+## Running the Files:
+In Week 5, run:
+```bash
+ng serve
+```
+
+And:
+```bash
+cd .\server\
+npm start
+```
+
+Everything else below is from last week's read me:
+
+-----
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.3.
 
