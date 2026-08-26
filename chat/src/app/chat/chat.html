@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Live Chat</h1>  <!-- Display the main Live Chat heading and centre it. -->
+    <form (ngSubmit)="sendMessage()" class="mb-4"> <!-- When this form is submitted, call the sendMessage() method in chat.ts -->
+        <div class="input-group">
+
+            <!-- [(ngModel)]="message" = Keep the input value synchronised with the message variable. -->
+                            <!-- user types "Hello", then message also becomes "Hello". -->
+            <input
+                type="text"
+                class="form-control"
+                name="message"
+                [(ngModel)]="message"
+                placeholder="Enter your message"
+                autocomplete="off">
+
+            <button
+                type="submit"
+                class="btn btn-primary">
+                Send
+            </button>
+
+        </div>
+
+    </form>
+
+    <h3>Messages</h3>
+
+    <ul class="list-group">
+
+        <!-- *ngFor="let msg of messages" = Loops through the messages array. -->
+        <li
+        *ngFor="let msg of messages"
+        class="list-group-item">
+        {{ msg }}
+        </li>
+        <!-- {{msg}} = Displays the value of the msg variable in the HTML. -->
+
+    </ul>
+
+</div>
