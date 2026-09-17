@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../product';
 
@@ -26,7 +26,10 @@ export class ProductsComponent implements OnInit {
    * Angular's dependency-injection system supplies ProductService.
    * "private" also creates a class property called productService.
    */
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+      private changeDetectorRef: ChangeDetectorRef
+    ) {}
 
   /*
    * ngOnInit is an Angular lifecycle hook.
@@ -44,9 +47,19 @@ export class ProductsComponent implements OnInit {
    * HttpClient returns an Observable, so subscribe() is used to receive the asynchronous HTTP response.
    */
   load(): void {
-    this.productService
-      .getProducts()
-      .subscribe(data => this.products = data);
+    this.productService.getProducts().subscribe({
+      next: (data) => {
+        console.log('PRODUCTS RECEIVED:', data);
+
+        this.products = data;
+
+        // Tell Angular that the component data has changed so the HTML is immediately updated.
+        this.changeDetectorRef.detectChanges();
+      },
+      error: (error) => {
+        console.error('PRODUCT REQUEST FAILED:', error);
+      }
+    });
   }
 
   /*
