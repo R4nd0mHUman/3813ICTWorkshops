@@ -1,0 +1,92 @@
+<!-- Page heading -->
+<h1>Add Product</h1>
+
+<!--
+  Submit the form by calling the save() method
+  when the user clicks the Add button.
+-->
+<form (ngSubmit)="save()">
+
+  <!-- Product ID -->
+  <label>
+    ID
+    <input
+      name="id"
+      type="number"
+      [(ngModel)]="product.id"
+      required
+    />
+  </label>
+
+  <br />
+
+  <!-- Product name -->
+  <label>
+    Name
+    <input
+      name="name"
+      maxlength="50"
+      [(ngModel)]="product.name"
+      required
+    />
+  </label>
+
+  <br />
+
+  <!-- Product description -->
+  <label>
+    Description
+    <input
+      name="description"
+      maxlength="255"
+      [(ngModel)]="product.description"
+      required
+    />
+  </label>
+
+  <br />
+
+  <!-- Product price -->
+  <label>
+    Price
+    <input
+      name="price"
+      type="number"
+      step="0.01"
+      [(ngModel)]="product.price"
+      required
+    />
+  </label>
+
+  <br />
+
+  <!-- Number of units available -->
+  <label>
+    Units
+    <input
+      name="units"
+      type="number"
+      [(ngModel)]="product.units"
+      required
+    />
+  </label>
+
+  <br />
+
+  <!-- Optional product type -->
+  <label>
+    Type
+    <input
+      name="type"
+      [(ngModel)]="product.type"
+    />
+  </label>
+
+  <br />
+
+  <!--
+    Submits the form and triggers the save() method.
+  -->
+  <button type="submit">Add</button>
+
+</form>

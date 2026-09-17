@@ -1,0 +1,42 @@
+<!-- Page heading -->
+<h1>Products</h1>
+
+<!-- Link to the Add Product page -->
+<a routerLink="/add">Add Product</a>
+
+<!-- Products table -->
+<table>
+  <!-- Table header -->
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Units</th>
+    <th>Actions</th>
+  </tr>
+
+  <!--
+    Loop through each product in the products array.
+    The current product is stored in the variable "p".
+  -->
+  <tr *ngFor="let p of products">
+    <td>{{ p.id }}</td>
+    <td>{{ p.name }}</td>
+    <td>{{ p.description }}</td>
+
+    <!-- Format the price as currency -->
+    <td>{{ p.price | currency }}</td>
+
+    <td>{{ p.units }}</td>
+
+    <!-- Product actions -->
+    <td>
+      <!-- Navigate to the update page for this product -->
+      <a [routerLink]="['/update', p._id]">Edit</a>
+
+      <!-- Call remove() when the Remove button is clicked -->
+      <button (click)="remove(p._id)">Remove</button>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,1 @@
+{"name":"week9-mongo-basics","version":"1.0.0","type":"commonjs","scripts":{"start":"node app.js"},"dependencies":{"mongodb":"^6.0.0"}}
